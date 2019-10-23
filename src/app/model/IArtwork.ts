@@ -5,6 +5,11 @@ export interface IArtwork {
   artiste: string,
   shippingWeight: number,
   amount: number,
+  image1: string,
+  image2: string,
+  image3: string,
+  recommended: number,
+  newPrice: number,
   category:number
 }
 

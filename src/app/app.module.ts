@@ -18,10 +18,6 @@ import {MatConfirmDialogComponent} from "./mat-confirm-dialog/mat-confirm-dialog
 import {DialogService} from "./shared/dialog.service";
 import { HomeComponent } from './home/home.component';
 import { CategoryComponent } from './category/category.component';
-import { ListOrderComponent } from './list-order/list-order.component';
-import { OrderEditComponent } from './list-order/order-edit/order-edit.component';
-import { UserAccountComponent } from './user-account/user-account.component';
-import { MatFileUploadModule } from 'angular-material-fileupload';
 
 @NgModule({
   declarations: [
@@ -31,10 +27,7 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
     ArtworkComponent,
     MatConfirmDialogComponent,
     HomeComponent,
-    CategoryComponent,
-    ListOrderComponent,
-    OrderEditComponent,
-    UserAccountComponent
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -46,11 +39,10 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
     HttpClientModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule,
-    MatFileUploadModule
+    ReactiveFormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
-  entryComponents: [ArtworkComponent,MatConfirmDialogComponent,CategoryComponent,OrderEditComponent]
+  entryComponents: [ArtworkComponent,MatConfirmDialogComponent,CategoryComponent]
 })
 export class AppModule { }

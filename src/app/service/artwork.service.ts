@@ -17,6 +17,11 @@ export class ArtworkService {
       artiste: new FormControl(''),
       shippingWeight: new FormControl(''),
       amount: new FormControl(''),
+      image1: new FormControl(''),
+      image2: new FormControl(''),
+      image3: new FormControl(''),
+      recommended:new FormControl(0),
+      newPrice: new FormControl(''),
       category: new FormControl(0)
 
 
@@ -38,6 +43,11 @@ export class ArtworkService {
       "artiste": artwork.artiste,
       "shippingWeight": artwork.shippingWeight,
       "amount":  artwork.amount,
+      "image1": artwork.image1,
+      "image2": artwork.image2,
+      "image3": artwork.image3,
+      "recommended": 1,
+      "newPrice": artwork.newPrice,
       "category": {
         "categoryId": artwork.category
       }
@@ -56,6 +66,11 @@ export class ArtworkService {
       "artiste": artwork.artiste,
       "shippingWeight": artwork.shippingWeight,
       "amount":  artwork.amount,
+      "image1": artwork.image1,
+      "image2": artwork.image2,
+      "image3": artwork.image3,
+      "recommended": 1,
+      "newPrice": artwork.newPrice,
       "category":{
         "categoryId": categoryId
       }
@@ -81,6 +96,11 @@ export class ArtworkService {
       "artiste": artwork.artiste,
       "shippingWeight": artwork.shippingWeight,
       "amount":  artwork.amount,
+      "image1": artwork.image1,
+      "image2": artwork.image2,
+      "image3": artwork.image3,
+      "recommended":artwork.recommended,
+      "newPrice": artwork.newPrice,
       "category": artwork.category.categoryId
 
     })

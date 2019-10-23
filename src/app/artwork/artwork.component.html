@@ -5,7 +5,7 @@
 </mat-toolbar>
 
 <form [formGroup]="service.form" class="normal-form">
-  <mat-grid-list cols="2" rowHeight="250px">
+  <mat-grid-list cols="2" rowHeight="375px">
     <mat-grid-tile>
       <div class="controles-container">
         <input type="hidden"  formControlName="artworkId"/>
@@ -20,6 +20,19 @@
           <mat-error *ngIf="service.form.controls['description'].errors?.required">description is mandatory</mat-error>
           <mat-error *ngIf="service.form.controls['description'].errors?.minlength">description min length is 8</mat-error>
         </mat-form-field>
+
+        <mat-form-field >
+          <input  formControlName="amount" matInput placeholder="Price*"/>
+          <mat-error>Price is invalid</mat-error>
+        </mat-form-field>
+
+        <mat-form-field >
+          <input  formControlName="newPrice" matInput placeholder="New Price*"/>
+          <mat-error>New Price is invalid</mat-error>
+        </mat-form-field>
+
+
+
 
 
         <mat-form-field >
@@ -37,10 +50,7 @@
           <mat-error>Title is invalid</mat-error>
         </mat-form-field>
 
-        <mat-form-field >
-          <input  formControlName="amount" matInput placeholder="amount*"/>
-          <mat-error>amount is invalid</mat-error>
-        </mat-form-field>
+
 
         <mat-form-field>
           <mat-select formControlName="category" placeholder="Category">
@@ -51,11 +61,30 @@
           </mat-select>
         </mat-form-field>
 
+        <mat-form-field >
+          <input  formControlName="image1" matInput placeholder="Image"/>
+          <mat-error>Image 1 is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+          <input  formControlName="image2" matInput placeholder="Image2"/>
+          <mat-error>Image 2 is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+          <input  formControlName="image3" matInput placeholder="Image3"/>
+          <mat-error>Image 3 is invalid</mat-error>
+        </mat-form-field>
+
+
+
+
+
       </div>
     </mat-grid-tile>
 
   </mat-grid-list>
-
+  <div class="add-bottom-padding">
+    <mat-checkbox formControlName="recommended">Recommended</mat-checkbox>
+  </div>
   <div class="button-row">
     <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid" (click)="onSubmit()">Save</button>
     <button mat-raised-button color="warn" (click)="onClear()" >Clear</button>

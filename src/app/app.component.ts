@@ -25,18 +25,12 @@ export class AppComponent {
   }
 
   artworkManagement() {
-    this._router.navigate([{outlets: {outlet1: ['listArtwork']}}], {skipLocationChange: true})
+    this._router.navigate([{outlets: {outlet1: ['listArtwork','first param','second']}}], {skipLocationChange: true})
   }
 
   categoryManagement() {
     this._router.navigate([{outlets: {outlet1: ['listCategory']}}], {skipLocationChange: true})
   }
 
-  orderManagement() {
-    this._router.navigate([{outlets: {outlet1: ['listOrder']}}], {skipLocationChange: true})
-  }
 
-  userAccountManagement() {
-    this._router.navigate([{outlets: {outlet1: ['userAccount']}}], {skipLocationChange: true})
-  }
 }

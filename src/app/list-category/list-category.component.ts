@@ -29,12 +29,10 @@ export class ListCategoryComponent implements AfterViewInit, OnInit {
 
               private dialog:MatDialog,private notificationService:NotificationService,
               private dialogService: DialogService){
-
     this.service.listen().subscribe(m=>{
       console.log(m);
       this.getList();
     });
-
   }
 
   ngOnInit() {

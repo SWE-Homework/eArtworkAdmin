@@ -8,6 +8,7 @@ import {ArtworkComponent} from "../artwork/artwork.component";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {NotificationService} from "../shared/notification.service";
 import {DialogService} from "../shared/dialog.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 
@@ -27,7 +28,9 @@ export class ListArtworkComponent implements AfterViewInit, OnInit {
   constructor(private artworkService: ArtworkService,
 
               private dialog:MatDialog,private notificationService:NotificationService,
-              private dialogService: DialogService){
+              private dialogService: DialogService,
+              private route: Router,
+              private activatedRoute: ActivatedRoute){
     this.artworkService.listen().subscribe(m=>{
       console.log(m);
       this.getLisArtwork();
@@ -39,7 +42,9 @@ export class ListArtworkComponent implements AfterViewInit, OnInit {
 
 
   ngOnInit() {
-
+    let id=this.activatedRoute.snapshot.paramMap.get("id");
+    let name=this.activatedRoute.snapshot.paramMap.get("name");
+    console.log("id result : "+id+"/ "+"name : "+name);
     this.getLisArtwork();
   }
 
