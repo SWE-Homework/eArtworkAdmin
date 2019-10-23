@@ -32,5 +32,11 @@ export class AppComponent {
     this._router.navigate([{outlets: {outlet1: ['listCategory']}}], {skipLocationChange: true})
   }
 
+  orderManagement() {
+    this._router.navigate([{outlets: {outlet1: ['listOrder']}}], {skipLocationChange: true})
+  }
 
+  userAccountManagement() {
+    this._router.navigate([{outlets: {outlet1: ['userAccount']}}], {skipLocationChange: true})
+  }
 }

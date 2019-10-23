@@ -18,6 +18,9 @@ import {MatConfirmDialogComponent} from "./mat-confirm-dialog/mat-confirm-dialog
 import {DialogService} from "./shared/dialog.service";
 import { HomeComponent } from './home/home.component';
 import { CategoryComponent } from './category/category.component';
+import { ListOrderComponent } from './list-order/list-order.component';
+import { OrderEditComponent } from './list-order/order-edit/order-edit.component';
+import { UserAccountComponent } from './user-account/user-account.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { CategoryComponent } from './category/category.component';
     ArtworkComponent,
     MatConfirmDialogComponent,
     HomeComponent,
-    CategoryComponent
+    CategoryComponent,
+    ListOrderComponent,
+    OrderEditComponent,
+    UserAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +49,6 @@ import { CategoryComponent } from './category/category.component';
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
-  entryComponents: [ArtworkComponent,MatConfirmDialogComponent,CategoryComponent]
+  entryComponents: [ArtworkComponent,MatConfirmDialogComponent,CategoryComponent,OrderEditComponent]
 })
 export class AppModule { }
