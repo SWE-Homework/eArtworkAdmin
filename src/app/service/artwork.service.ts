@@ -54,6 +54,7 @@ export class ArtworkService {
 
     }
 
+    console.log("ArtWorkService : ");
 
     return this.httpClient.post("http://localhost:8080/eartwork/api/artworks/add",artworkLo);
   }
