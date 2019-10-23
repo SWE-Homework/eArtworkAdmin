@@ -1,0 +1,42 @@
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="orderId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>orderId</th>
+      <td mat-cell *matCellDef="let row">{{row.orderId}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td mat-cell *matCellDef="let row">{{row.status}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="dateCreated">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Created</th>
+      <td mat-cell *matCellDef="let row">{{row.dateCreated}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="button">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td mat-cell *matCellDef="let row" >
+        <span class="btSpace"><button type="button" class="btn btn-success" (click)="editStatus(row.orderId)"><i class="fa fa-edit"></i></button></span>
+        <span class="btSpace"><button type="button" class="btn btn-danger" (click)="onDelete(row.orderId)"><i class="fa fa-trash-o"></i></button></span>
+      </td>
+
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [length]="dataSource?.data.length"
+      [pageIndex]="0"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 50, 100, 250]">
+  </mat-paginator>
+</div>

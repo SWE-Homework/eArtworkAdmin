@@ -1,0 +1,44 @@
+<div class="mat-elevation-z8">
+
+<form [formGroup]="service.formUserAccount" class="normal-form">
+  <mat-grid-list cols="1" rowHeight="200px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden"  formControlName="userAccountId"/>
+
+        <mat-form-field class="inputSpace">
+          <input  formControlName="firstName" matInput placeholder="First Name*"/>
+          <mat-error>Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="inputSpace">
+          <input  formControlName="lastName" matInput placeholder="Last Name"/>
+        </mat-form-field>
+
+      </div>
+      <div class="controles-container">
+        <mat-form-field class="inputSpace">
+          <input  formControlName="password" matInput placeholder="PassWord*"/>
+          <mat-error>Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="inputSpace">
+          <input  formControlName="email" matInput placeholder="email"/>
+        </mat-form-field>
+      </div>
+      <div class="controles-container">
+          <input    type="file"  (change)="onFileChange($event)"  placeholder=" Profile Pic*"/>
+
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <div class="button-row">
+    <button mat-raised-button color="primary" type="submit" [disabled]="service.formUserAccount.invalid" (click)="onSubmit()">Save</button>
+    <button mat-raised-button color="warn" (click)="onClear()" >Clear</button>
+  </div>
+
+</form>
+</div>
+
+

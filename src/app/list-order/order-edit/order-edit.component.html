@@ -1,0 +1,52 @@
+<mat-toolbar>
+  <span>Change Order Status #{{service.order["orderId"]}}</span>
+  <span class="fill-remain-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<span></span>
+<p class="lead">Date Created : {{service.order["dateCreated"]}}</p>
+<p class="lead">Current Status : {{service.order["status"]}}</p>
+<table class="table">
+  <thead class="thead-light">
+  <tr>
+    <th scope="col">Art Name</th>
+    <th scope="col">Artist Name</th>
+    <th scope="col">Number Copies</th>
+    <th scope="col">Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of service.order.orderDetail">
+
+    <td *ngIf="row.artWork">{{row.artWork.name}}</td><td *ngIf="!row.artWork"></td>
+    <td *ngIf="row.artWork">{{row.artWork.artiste}}</td><td *ngIf="!row.artWork"></td>
+    <td>{{row.quantity}}</td>
+    <td *ngIf="row.artWork">{{row.artWork.amount}}</td><td *ngIf="!row.artWork">{{row.unitCost}}</td>
+  </tr>
+  </tbody>
+</table>
+<form [formGroup]="service.formEditStatus" class="normal-form">
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden"  formControlName="orderId"/>
+
+        <mat-form-field>
+          <mat-select formControlName="status" placeholder="status">
+            <mat-option value="-1">None</mat-option>
+            <ng-container *ngFor="let status of listStatus">
+              <mat-option [value]="status">{{status}}</mat-option>
+            </ng-container>
+          </mat-select>
+          <mat-error>Name is required</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="button-row">
+    <button mat-raised-button color="primary" type="submit" [disabled]="service.formEditStatus.invalid" (click)="onSubmit()">Save</button>
+<!--    <button mat-raised-button color="warn" (click)="onClear()" >Clear</button>-->
+  </div>
+
+</form>
+

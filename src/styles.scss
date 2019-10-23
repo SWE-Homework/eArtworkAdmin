@@ -1,0 +1,125 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://unpkg.com/bootstrap@4/dist/css/bootstrap.min.css');
+@import "~font-awesome/css/font-awesome.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.div-header{
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+div.container{
+  margin: 0px 1px;
+
+
+}
+
+
+.fill-remain-space{
+  flex: 1 1 auto;
+}
+
+.normal-form{
+  margin: 1px;
+}
+
+
+.controles-container{
+  width: 100%;
+  padding: 5%;
+}
+
+.controles-container > * {
+  width: 100%;
+}
+
+.add-bottom-padding{
+  padding-bottom: 10px;
+}
+
+mat-radio-group mat-radio-button{
+  margin-left: 5px;
+}
+
+.button-row button{
+  margin: 5px;
+  width: 20%;
+}
+
+.button-row{
+  text-align: center;
+
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+snack-bar-container.notification{
+  background-color: #5cb85c;
+  color: #fff;
+}
+
+snack-bar-container.success{
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+snack-bar-container.warn {
+  background-color: #f99157;
+  color : #fff;
+}
+
+snack-bar-container.error {
+  background-color: firebrick;
+  color : #fff;
+}
+
+/* mat-confirm-dialog (customised dialog) */
+.confirm-dialog-container .mat-dialog-container {
+  border-radius: .25em .25em .4em .4em;
+  padding: 0px;
+}
+.confirm-dialog-container .content-container{
+  margin: 5px 5px 15px 5px;
+  color: #8f9cb5;
+  display: flex;
+}
+.confirm-dialog-container #close-icon{
+  margin-left: auto;
+  order: 2;
+  font-weight: bolder;
+}
+.confirm-dialog-container #close-icon:hover{
+  cursor: pointer;
+}
+
+.confirm-dialog-container #no-button{
+
+  margin-right: 5px;
+}
+
+.confirm-dialog-container #yes-button{
+  height: 50px;
+  width: 50%;
+  background-color: #b6bece;
+  color:white;
+  border-radius: 0px;
+}
+
+.confirm-dialog-container span.content-span{
+  padding:  35px 16px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.buttonConfirm{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+

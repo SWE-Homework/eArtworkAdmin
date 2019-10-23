@@ -1,0 +1,14 @@
+<div>
+  <div class="content-container">
+    <mat-icon id="close-icon" (click)="closeDialog()">close</mat-icon>
+    <span class="content-span full-width">
+      <button mat-flat-button tabindex="-1"><div style="font-size: 30px;"><i style="color:darkblue;" class="fa fa-question"></i></div></button>
+      {{data.message}}</span>
+  </div>
+  <div class="buttonConfirm">
+    <button  class="sizeConfirmButton"  mat-raised-button color="warn" id="no-button" [mat-dialog-close]="false" tabindex="-1">NO</button>
+    <button  class="sizeConfirmButton"  mat-raised-button color="primary" [mat-dialog-close]="true" tabindex="-1">YES</button>
+  </div>
+
+
+</div>
