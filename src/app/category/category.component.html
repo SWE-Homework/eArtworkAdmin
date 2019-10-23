@@ -1,0 +1,34 @@
+<mat-toolbar>
+  <span>{{service.form.controls['categoryId'].value?'Modify Category':'New Category'}}</span>
+  <span class="fill-remain-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+
+<form [formGroup]="service.form" class="normal-form">
+  <mat-grid-list cols="1" rowHeight="150px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden"  formControlName="categoryId"/>
+
+        <mat-form-field class="inputSpace">
+          <input  formControlName="name" matInput placeholder="Name*"/>
+          <mat-error>Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="inputSpace">
+          <input  formControlName="description" matInput placeholder="Description"/>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <div class="button-row">
+    <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid" (click)="onSubmit()">Save</button>
+    <button mat-raised-button color="warn" (click)="onClear()" >Clear</button>
+  </div>
+
+</form>
+
+
+

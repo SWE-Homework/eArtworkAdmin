@@ -1,0 +1,48 @@
+<mat-toolbar color="primary" >
+  <mat-toolbar-row >
+    <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+
+    <h1> eArtwork Online shopping ::: eArtwork Admin Manager</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <a class="headerBar" mat-button (click)="loadHomePage()">Home</a>
+      <a class="headerBar" mat-button (click)="sidenav.toggle()">Modules Management</a>
+    </div>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!--<div style="font-size: 12px; background-color: blueviolet">SimpleCRM helps you easily manage your contacts</div>
+-->
+
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-nav-list>
+      <a mat-list-item (click)="artworkManagement()" ><div class="iconNavSide" ><i style="color:darkblue;" class="fa fa-list"></i></div> Artwork Management</a>
+      <mat-divider></mat-divider>
+      <a  mat-list-item (click)="categoryManagement()"><div class="iconNavSide"><i style="color:darkred;" class="fa fa-list"></i></div> Category Management</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item (click)="sidenav.toggle()"><div class="iconNavSide"><i style="color:red;" class="fa fa-close"></i></div>Close</a>
+
+      <!-- <div mat-list-item><button  mat-flat-button type="button" color="primary">Login and register</button></div>
+       <mat-divider></mat-divider>
+       <div mat-list-item><button  mat-flat-button type="button" color="primary">Login and register</button></div>
+       <mat-divider></mat-divider>
+       <div mat-list-item><button  mat-flat-button type="button" color="primary">Login and register</button></div>
+     -->
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <div style="height: 88vh;">
+      <router-outlet name='outlet1'>
+
+      </router-outlet>
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

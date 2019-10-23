@@ -1,0 +1,95 @@
+<mat-toolbar>
+  <span>{{service.form.controls['artworkId'].value?'Modify Artwork':'New Artwork'}}</span>
+  <span class="fill-remain-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+
+<form [formGroup]="service.form" class="normal-form">
+  <mat-grid-list cols="2" rowHeight="375px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden"  formControlName="artworkId"/>
+
+        <mat-form-field class="inputSpace">
+          <input  formControlName="name" matInput placeholder="Name*"/>
+          <mat-error>Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field >
+          <input formControlName="description" matInput placeholder="description"/>
+          <mat-error *ngIf="service.form.controls['description'].errors?.required">description is mandatory</mat-error>
+          <mat-error *ngIf="service.form.controls['description'].errors?.minlength">description min length is 8</mat-error>
+        </mat-form-field>
+
+        <mat-form-field >
+          <input  formControlName="amount" matInput placeholder="Price*"/>
+          <mat-error>Price is invalid</mat-error>
+        </mat-form-field>
+
+        <mat-form-field >
+          <input  formControlName="newPrice" matInput placeholder="New Price*"/>
+          <mat-error>New Price is invalid</mat-error>
+        </mat-form-field>
+
+
+
+
+
+        <mat-form-field >
+          <input formControlName="artiste" matInput placeholder="artiste"/>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+
+    <!----second column--->
+    <mat-grid-tile>
+      <div class="controles-container">
+
+        <mat-form-field >
+          <input  formControlName="shippingWeight" matInput placeholder="shippingWeight*"/>
+          <mat-error>Title is invalid</mat-error>
+        </mat-form-field>
+
+
+
+        <mat-form-field>
+          <mat-select formControlName="category" placeholder="Category">
+            <mat-option value="-1">None</mat-option>
+            <ng-container *ngFor="let category of listCategory">
+              <mat-option [value]="category.categoryId">{{category.name}}</mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field >
+          <input  formControlName="image1" matInput placeholder="Image"/>
+          <mat-error>Image 1 is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+          <input  formControlName="image2" matInput placeholder="Image2"/>
+          <mat-error>Image 2 is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+          <input  formControlName="image3" matInput placeholder="Image3"/>
+          <mat-error>Image 3 is invalid</mat-error>
+        </mat-form-field>
+
+
+
+
+
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+  <div class="add-bottom-padding">
+    <mat-checkbox formControlName="recommended">Recommended</mat-checkbox>
+  </div>
+  <div class="button-row">
+    <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid" (click)="onSubmit()">Save</button>
+    <button mat-raised-button color="warn" (click)="onClear()" >Clear</button>
+  </div>
+
+</form>
+
+
