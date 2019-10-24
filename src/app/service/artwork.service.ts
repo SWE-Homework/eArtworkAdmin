@@ -88,7 +88,7 @@ export class ArtworkService {
   }
 
   populateForm(artwork){
-    console.log(artwork);
+    console.log("Populate : "+artwork.artworkId+" / "+artwork.name);
     console.log("Second : "+artwork.category.categoryId)
     this.form.setValue({
       "artworkId": artwork.artworkId,
@@ -105,6 +105,8 @@ export class ArtworkService {
       "category": artwork.category.categoryId
 
     })
+
+    console.log("afet setvalue : "+this.form.get("artworkId").value);
 
 
   }

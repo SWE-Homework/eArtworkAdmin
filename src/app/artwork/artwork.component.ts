@@ -45,32 +45,93 @@ export class ArtworkComponent implements OnInit {
   onSubmit(){
 
     this.artwork=this.service.form.value;
+    console.log("Id artwork : "+this.artwork.artworkId);
+    let loId=this.artwork.artworkId;
+    //========file 1=======
     if(this.fileImg1)
+
     this.fileUploadService.save(this.fileImg1).subscribe(resp => {
-           this.artwork.image1 =(JSON.parse(JSON.stringify(resp)).fileName);
+      let img: string=(JSON.parse(JSON.stringify(resp)).fileName)
+      console.log("Inside this image2 : "+ img);
+
+           this.artwork.image1 =img;
+           //========file 2=======
+            if(this.fileImg2)
+
+              this.fileUploadService.save(this.fileImg2).subscribe(resp => {
+                  this.artwork.image2 =(JSON.parse(JSON.stringify(resp)).fileName);
+
+                //========file 3=======
+                  if(this.fileImg3)
+                    this.fileUploadService.save(this.fileImg3).subscribe(resp => {
+                      this.artwork.image3 =(JSON.parse(JSON.stringify(resp)).fileName);
+
+                        //========Save and update=====
+
+                      console.log("Id artwork : "+loId);
+                      if(loId){
+
+
+                            this.service.update(this.artwork, this.artwork.category).subscribe(data=>{
+                                console.log(this.artwork);
+                                console.log(JSON.parse(JSON.stringify(data)));
+                                this.saveObjectReturned=data;
+                                this.notificationService.success("Artwork updated Successfully ");
+                                console.log("Success : "+data);
+                                this.service.filter("Register click");
+                              },
+                              error=>{
+                                this.notificationService.error("Error : "+error);
+                                console.log("Error : "+error);
+                              });;
+                          }else{
+                            this.service.save(this.artwork,this.categoryId).subscribe(data=>{
+                                console.log(this.artwork);
+                                console.log(JSON.parse(JSON.stringify(data)));
+                                this.saveObjectReturned=data;
+                                this.notificationService.success("Artwork saved Successfully ");
+                                console.log("Success : "+data);
+                                this.service.filter("Register click");
+                              },
+                              error=>{
+                                this.notificationService.error("Error : "+error);
+                                console.log("Error : "+error);
+                              });
+                          }
+
+                          this.service.form.reset();
+
+                    }, error => {
+                      console.log("error 3: "+error);
+                    });
+
+
+              }, error => {
+                console.log("error 2: "+error);
+              });
+
+
         }, error => {
-
+        console.log("error 1: "+error);
     });
-    if(this.fileImg2)
-    this.fileUploadService.save(this.fileImg2).subscribe(resp => {
-      this.artwork.image2 =(JSON.parse(JSON.stringify(resp)).fileName);
-    }, error => {
 
-    });
-    if(this.fileImg3)
-    this.fileUploadService.save(this.fileImg3).subscribe(resp => {
-      this.artwork.image3 =(JSON.parse(JSON.stringify(resp)).fileName);
-    }, error => {
-
-    });
 
     // this.artwork.image1 = m;
     // this.artwork.image2 = this.fileUploadService.save(this.fileImg2);
     // this.artwork.image3 = this.fileUploadService.save(this.fileImg3);
 
-    console.log("good value : "+ this.artwork.category);
+    console.log("Buno :" +JSON.parse(JSON.stringify(this.artwork)));
+    console.log("good value : "+ this.artwork.image1+" / "+this.artwork.image2+" / "+this.artwork.image3);
 
-    if(this.service.form.get('artworkId').value){
+        //this.service.initializeFormGroup();
+    this.onClose();
+  }
+
+  saveAndUpdate(){
+      let loId=this.service.form.get('artworkId').value
+    if(loId){
+      console.log("Id artwork : "+loId);
+
       this.service.update(this.artwork, this.artwork.category).subscribe(data=>{
           console.log(this.artwork);
           console.log(JSON.parse(JSON.stringify(data)));
@@ -99,8 +160,7 @@ export class ArtworkComponent implements OnInit {
     }
 
     this.service.form.reset();
-    //this.service.initializeFormGroup();
-    this.onClose();
+
   }
 
 
